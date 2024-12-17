@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Information System - Issue Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            font-size: 14px;
+            color: #28a745;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Issue a Book</h1>
+        <form action="/issue_book" method="post">
+            <!-- Member Details -->
+            <label for="member_id">Member ID:</label>
+            <input type="text" id="member_id" name="member_id" placeholder="Enter Member ID" required>
+
+            <!-- Book Details -->
+            <label for="book_isbn">Book ISBN:</label>
+            <input type="text" id="book_isbn" name="book_isbn" placeholder="Enter Book ISBN" required>
+
+            <!-- Issue Date -->
+            <label for="issue_date">Issue Date:</label>
+            <input type="date" id="issue_date" name="issue_date" required>
+
+            <!-- Submit Button -->
+            <button type="submit">Issue Book</button>
+        </form>
+        <p class="message">Please ensure the member and book details are correct before submitting.</p>
+    </div>
+</body>
+</html>

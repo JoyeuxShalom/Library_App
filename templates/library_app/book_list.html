@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Books</title>
+    <style>
+        /* General Page Styling */
+        :root {
+            --bg-color: #191f36;
+            --snd-bg-color: #262B40;
+            --text-color: #fff;
+            --main-color: #59B2F4;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure the footer stays at the bottom */
+        }
+
+        /* Page Header */
+        header {
+            background-color: #004080;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        /* Links */
+        a {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background-color: #004080;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        a:hover {
+            background-color: #003366;
+        }
+
+        /* Book List */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 2rem auto;
+            width: 80%;
+        }
+
+        li {
+            background-color: #fff;
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        li:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #004080; /* Same background color as header */
+            color: white;
+            padding: 1rem 0; /* Reduced padding */
+            text-align: center;
+            margin-top: auto; /* Push footer to the bottom */
+        }
+
+        .footer-text p {
+            font-size: 1rem; /* Reduced text size */
+            margin: 0;
+        }
+
+        /* Responsive design adjustments */
+        @media (max-width: 991px) {
+            .footer {
+                padding: 1rem 3%; /* Adjust padding for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Header -->
+    <header>Library Book List</header>
+
+    <!-- Links to Add or Issue Books -->
+    <div style="text-align: center; margin: 1rem;">
+        <a href="{% url 'add_book' %}">Add New Book</a>
+        <a href="{% url 'issue_book' %}">Issue Book</a>
+    </div>
+
+    <!-- Book List -->
+    <ul>
+        {% for book in books %}
+            <li>
+                <strong>{{ book.title }}</strong> by <em>{{ book.author }}</em> | 
+                Available Copies: {{ book.available_copies }}
+            </li>
+        {% empty %}
+            <li>No books available in the library at the moment.</li>
+        {% endfor %}
+    </ul>
+
+    <!-- FOOTER SECTION DESIGN -->
+    <footer>
+        <div class="footer-text">
+            <p>Copyright &copy; 2024 by @JoyeuxShalom | All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
